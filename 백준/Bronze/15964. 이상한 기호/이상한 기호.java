@@ -6,7 +6,6 @@ public class Main {
 
         int a = scan.nextInt();
         int b = scan.nextInt();
-        
-        System.out.print((a+b)*(a-b));
+        System.out.print((long)(a+b)*(a-b));
     }
 }
