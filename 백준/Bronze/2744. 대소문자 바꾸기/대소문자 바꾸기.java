@@ -12,6 +12,7 @@ public class Main {
                     System.out.print((char)(str.charAt(i)+32));
                 }
             }
+            br.close();
         } catch (Exception e) {
         }
     }
