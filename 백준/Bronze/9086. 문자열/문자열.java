@@ -5,9 +5,9 @@ public class Main {
     public static void main(String[] args)throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(br.readLine());
-        String str;
+        
         for(int i = 0; i<num; i++){
-            str = br.readLine();
+            String str = br.readLine();
             System.out.print(str.charAt(0));
             System.out.println(str.charAt(str.length()-1));
         }
