@@ -6,44 +6,35 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             String[] nums = br.readLine().split(" ");
-            int[] lengths = new int[2];
-            for (int i = 0; i < nums.length; i++) {
-                lengths[i] = Integer.parseInt(nums[i]);
-            }
+            int n = Integer.parseInt(nums[0]);
+            int m = Integer.parseInt(nums[1]);
+
             String num1 = br.readLine();
             String num2 = br.readLine();
-            num1 = num1.trim();
-            num2 = num2.trim();
-            if(!num1.equals("0") && !num2.equals("0")) {
-                int[] number = new int[lengths[0] + lengths[1] - 1];
-                int upper = 0;
-                int result = 0;
-                for (int i = 0; i < lengths[0] + lengths[1] - 1; i++) {
-                    result = 0;
-                    for (int j = 0; j <= i && j < lengths[0]; j++) {
-                        if (i - j < lengths[1]) {
-                            result = result + (num1.charAt(lengths[0] - j - 1) - '0')
-                                    * (num2.charAt(lengths[1] - i + j - 1) - '0');
-                        }
-                    }
-                    result = result + upper;
-                    number[i] = result % 10;
-                    upper = result / 10;
+
+            int[] result = new int[n + m];
+
+            for (int i = n - 1; i >= 0; i--) {
+                for (int j = m - 1; j >= 0; j--) {
+                    int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+                    int sum = mul + result[i + j + 1];
+                    result[i + j + 1] = sum % 10; 
+                    result[i + j] += sum / 10;   
                 }
-                StringBuffer sb = new StringBuffer();
-                if (upper != 0) {
-                    sb.append(upper);
-                }
-                for (int i = number.length; i > 0; i--) {
-                    sb.append(number[i - 1]);
-                }
-                System.out.print(sb);
-            } else {
-                System.out.print(0);
             }
+            StringBuilder sb = new StringBuilder();
+            for (int num : result) {
+                if (!(sb.length() == 0 && num == 0)) { 
+                    sb.append(num);
+                }
+            }
+            if (sb.length() == 0) {
+                sb.append(0);
+            }
+            System.out.print(sb.toString());
             br.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); 
         }
     }
 }
