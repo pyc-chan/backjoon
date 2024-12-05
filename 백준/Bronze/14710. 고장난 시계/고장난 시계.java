@@ -7,16 +7,11 @@ public class Main {
         try {
             String[] str = br.readLine().split(" ");
             br.close();
-            int hour = Integer.parseInt(str[0]);
-            int minute = Integer.parseInt(str[1]);
-            hour = hour*12%360;
-            if(hour == minute){
-                System.out.println("O");
-            }else{
-                System.out.println("X");
-            }
+            if(Integer.parseInt(str[0])*12%360 == Integer.parseInt(str[1]))
+                System.out.print("O");
+            else
+                System.out.print("X");
         } catch (Exception e) {
-            // TODO: handle exception
         }
     }
 }
