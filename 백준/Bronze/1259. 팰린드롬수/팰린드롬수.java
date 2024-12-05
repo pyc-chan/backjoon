@@ -7,20 +7,18 @@ public class Main {
         try {
             while (true) {
                 String str = br.readLine();
-                if(str.equals("0")){
+                if(Integer.parseInt(str)==0){
                     break;
-                }else{
-                    boolean result = true;
-                    for(int i = 0; i<str.length()/2; i++){
-                        if(str.charAt(i)!=str.charAt(str.length()-i-1)){
-                            result = false;
-                        }
-                    }
-                    System.out.println(result ? "yes" : "no");
                 }
-                
+                boolean result = true;
+                int tmp = str.length()/2;
+                for(int i = 0; i<tmp; i++){
+                    if(str.charAt(i)!=str.charAt(str.length()-i-1)){
+                        result = false;
+                    }
+                }
+                System.out.println(result ? "yes" : "no");
             }
-            
         } catch (Exception e) {
         }
     }
