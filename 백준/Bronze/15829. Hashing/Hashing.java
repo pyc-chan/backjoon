@@ -7,14 +7,12 @@ public class Main {
         try {
             int num = Integer.parseInt(br.readLine());
             String str = br.readLine();
-            int result = 0;
+            long result = 0;
             long result2 = 1;
+            long mod = 1234567891;
                 for(int i = 0; i<num; i++){
-                    result2 = 1;
-                    for(int j = 0; j<i; j++){
-                        result2 = (result2*31)%1234567891;
-                    }
-                    result = result + (str.charAt(i)-'a'+1)*(int)result2;
+                    result = (result + (str.charAt(i)-'a'+1)*result2)%mod;
+                    result2 = (result2*31)%mod;
             }
             System.out.print(result);
         } catch (Exception e) {
