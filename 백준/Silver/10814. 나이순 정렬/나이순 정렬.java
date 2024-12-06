@@ -8,7 +8,6 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             int num = Integer.parseInt(br.readLine());
-            int[] number = new int[200];
             Map str = new HashMap<Integer, String>();
             for(int i = 0; i<num; i++){
                 String result = br.readLine();
@@ -19,11 +18,9 @@ public class Main {
                 }else{
                 str.put(Integer.parseInt(tmp[0])-1, result);
             }
-                number[Integer.parseInt(tmp[0])-1] += 1;
             }
-            
-            for(int i = 0; i<200; i++){
-                if(number[i] != 0)
+            for (int i = 0; i<200; i++) {
+                if(str.get(i)!=null)
                 System.out.println(str.get(i));
             }
             
