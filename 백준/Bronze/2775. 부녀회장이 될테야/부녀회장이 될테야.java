@@ -9,18 +9,17 @@ public class Main {
         for(int i = 0; i<num; i++){
             int floor = Integer.parseInt(br.readLine());
             int lake = Integer.parseInt(br.readLine());
-            int result = 0;
             int[][] sum = new int[floor+1][lake+1];
-            for(int j=0; j<=lake; j++){
-                sum[0][j] = j;
-            }
-            for(int j = 1; j<=floor; j++){
+            for(int j = 0; j<=floor; j++){
                 for(int k = 1; k<=lake; k++){
-                    sum[j][k]= sum[j-1][k] + sum[j][k-1];
+                    if(j==0){
+                        sum[j][k] = k;
+                    }else{
+                        sum[j][k]= sum[j-1][k] + sum[j][k-1];
+                    }
                 }
             }
-            result = sum[floor][lake];
-            System.out.println(result);
+            System.out.println(sum[floor][lake]);
         }
     }
 }
