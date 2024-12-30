@@ -19,8 +19,6 @@ public class Main {
                 case "ALGORITHM":
                     System.out.println("CONTEST");
                     break;
-                default:
-                    break;
             }
         } catch (Exception e) {
         }
