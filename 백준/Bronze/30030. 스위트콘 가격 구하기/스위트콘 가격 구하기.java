@@ -6,7 +6,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             int number = Integer.parseInt(br.readLine());
-            System.out.println(number/11*10);
+            System.out.print(number/11*10);
         } catch (Exception e) {
         }
     }
