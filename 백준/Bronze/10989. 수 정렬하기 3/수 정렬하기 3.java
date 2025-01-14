@@ -15,6 +15,7 @@ public class Main {
                 nums[Integer.parseInt(br.readLine())]++;
             }
             for(int i = 1; i<nums.length; i++){
+                if(nums[i]>0)
                 for(int j = 0; j < nums[i]; j++){
                     sb.append(i).append("\n");
                 }
